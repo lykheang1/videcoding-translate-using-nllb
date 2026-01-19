@@ -40,7 +40,12 @@ RUN npm ci --only=production && npm cache clean --force
 # Next.js standalone output structure
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-COPY --from=builder --chown=nextjs:nodejs /app/public ./public
+
+# Create public directory if it doesn't exist
+RUN mkdir -p ./public
+
+# Conditionally copy public files if they exist in builder
+RUN if [ -d /app/public ]; then cp -r /app/public/* ./public/ 2>/dev/null || true; fi
 
 USER nextjs
 

@@ -78,7 +78,7 @@ docker-compose up -d --build
 **First Run**: The backend will automatically download the NLLB-200 model (~1.2GB) on first startup. This may take 5-10 minutes depending on your internet connection. The model is cached for subsequent runs.
 
 **Access the Application:**
-- 🌐 Frontend: http://localhost:4000
+- 🌐 Frontend: http://localhost:3001
 - 🔧 Backend API: http://localhost:8000
 - 📚 API Documentation: http://localhost:8000/docs
 

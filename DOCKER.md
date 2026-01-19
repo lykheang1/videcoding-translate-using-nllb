@@ -50,8 +50,8 @@ This project uses Docker Compose to run both the backend and frontend services.
 - **API Docs:** http://localhost:8000/docs
 
 ### Frontend (Next.js)
-- **Port:** 3000 (host) -> 3000 (container)
-- **URL:** http://localhost:3000
+- **Port:** 3001 (host) -> 3000 (container)
+- **URL:** http://localhost:3001
 
 ## First Run
 
@@ -66,7 +66,7 @@ You can customize the setup by creating a `.env` file in the root directory:
 BACKEND_PORT=8000
 
 # Frontend
-FRONTEND_PORT=3000
+FRONTEND_PORT=3001
 NEXT_PUBLIC_API_URL=http://localhost:8000
 ```
 

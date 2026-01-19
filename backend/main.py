@@ -16,7 +16,7 @@ app = FastAPI(title="Translation API with NLLB-200", version="2.0.0")
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:4000", "http://localhost:3000"],  # Support both old and new port
+    allow_origins=["http://localhost:4000", "http://localhost:3000", "http://localhost:3001", "http://0.0.0.0:3001"],  # Support multiple ports
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
