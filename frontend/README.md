@@ -40,4 +40,4 @@ npm start
 
 ## Notes
 
-Make sure the backend server is running at `http://localhost:8001` for the translation API to work.
+Make sure the backend server is running at `http://localhost:8000` for the translation API to work.

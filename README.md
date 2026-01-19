@@ -79,8 +79,8 @@ docker-compose up -d --build
 
 **Access the Application:**
 - 🌐 Frontend: http://localhost:4000
-- 🔧 Backend API: http://localhost:8001
-- 📚 API Documentation: http://localhost:8001/docs
+- 🔧 Backend API: http://localhost:8000
+- 📚 API Documentation: http://localhost:8000/docs
 
 For detailed Docker instructions, see [DOCKER.md](DOCKER.md).
 
@@ -131,7 +131,7 @@ See `Makefile` for all available commands.
 
 5. **Verify it's running:**
    ```bash
-   curl http://localhost:8001/health
+   curl http://localhost:8000/health
    ```
 
 #### Frontend Setup
@@ -287,13 +287,13 @@ The application automatically handles long texts by:
 - `PYTHONUNBUFFERED=1` - Enable unbuffered Python output
 
 #### Frontend
-- `NEXT_PUBLIC_API_URL` - Backend API URL (default: http://localhost:8001)
+- `NEXT_PUBLIC_API_URL` - Backend API URL (default: http://localhost:8000)
 - `NODE_ENV` - Environment (production/development)
 
 ### Port Configuration
 
 Default ports (can be changed in `docker-compose.yml`):
-- **Backend**: 8001 (host) → 8000 (container)
+- **Backend**: 8000 (host) → 8000 (container)
 - **Frontend**: 4000 (host) → 3000 (container)
 
 To change ports, modify `docker-compose.yml`:
@@ -311,8 +311,8 @@ services:
 
 Interactive API documentation is automatically generated:
 
-- **Swagger UI**: http://localhost:8001/docs
-- **ReDoc**: http://localhost:8001/redoc
+- **Swagger UI**: http://localhost:8000/docs
+- **ReDoc**: http://localhost:8000/redoc
 
 Both provide:
 - Endpoint documentation
@@ -336,7 +336,7 @@ Both provide:
 ### Frontend Issues
 
 **Problem**: "Failed to fetch languages"
-- **Solution**: Ensure backend is running and healthy at http://localhost:8001
+- **Solution**: Ensure backend is running and healthy at http://localhost:8000
 
 **Problem**: Translation doesn't work
 - **Solution**: Check browser console for errors, verify API URL is correct
@@ -356,7 +356,7 @@ Both provide:
 
 Check backend health:
 ```bash
-curl http://localhost:8001/health
+curl http://localhost:8000/health
 ```
 
 Expected response:
@@ -415,7 +415,7 @@ MIT License - See LICENSE file for details
 
 For issues, questions, or contributions:
 1. Check the [DOCKER.md](DOCKER.md) for Docker-specific issues
-2. Review API documentation at http://localhost:8001/docs
+2. Review API documentation at http://localhost:8000/docs
 3. Check backend and frontend README files for detailed setup
 
 ## 🔮 Future Enhancements

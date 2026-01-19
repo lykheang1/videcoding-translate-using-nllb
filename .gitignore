@@ -48,6 +48,9 @@ node_modules/
 .vscode/
 .idea/
 *.swp
+
+# Shell Scripts
+tsrun.sh
 *.swo
 *~
 

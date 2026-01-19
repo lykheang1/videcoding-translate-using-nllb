@@ -7,7 +7,7 @@ interface Language {
   name: string
 }
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8001'
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
 
 export default function Home() {
   const [text, setText] = useState('')
@@ -50,9 +50,9 @@ export default function Home() {
         setRetryCount(0)
       } catch (err: any) {
         attempts++
-        const isBackendLoading = err.message === 'BACKEND_LOADING' || 
-                                 err.name === 'AbortError' ||
-                                 err.message.includes('fetch')
+        const isBackendLoading = err.message === 'BACKEND_LOADING' ||
+          err.name === 'AbortError' ||
+          err.message.includes('fetch')
 
         if (isBackendLoading && attempts < maxRetries) {
           // Backend is still loading, retry with exponential backoff
@@ -66,7 +66,7 @@ export default function Home() {
           setError(
             attempts >= maxRetries
               ? 'Backend is taking longer than expected to load. Please check the backend terminal and ensure the model is downloading/loading properly.'
-              : 'Failed to fetch languages. Make sure the backend server is running at http://localhost:8001'
+              : 'Failed to fetch languages. Make sure the backend server is running at http://localhost:8000'
           )
           setLoadingLanguages(false)
         }
@@ -156,7 +156,7 @@ export default function Home() {
       } else if (err.message) {
         setError(err.message)
       } else {
-        setError('Failed to translate. Make sure the backend server is running at http://localhost:8001')
+        setError('Failed to translate. Make sure the backend server is running at http://localhost:8000')
       }
     } finally {
       setLoading(false)
@@ -190,11 +190,10 @@ export default function Home() {
 
           {/* Error/Status Message */}
           {error && (
-            <div className={`mb-4 p-4 rounded-lg ${
-              error.includes('loading') || error.includes('Retrying')
+            <div className={`mb-4 p-4 rounded-lg ${error.includes('loading') || error.includes('Retrying')
                 ? 'bg-yellow-100 border border-yellow-400 text-yellow-800'
                 : 'bg-red-100 border border-red-400 text-red-700'
-            }`}>
+              }`}>
               <div className="flex items-center justify-between">
                 <span>{error}</span>
                 {error.includes('taking longer') && (

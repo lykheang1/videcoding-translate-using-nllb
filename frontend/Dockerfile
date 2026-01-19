@@ -13,7 +13,7 @@ RUN npm ci
 COPY . .
 
 # Set build-time environment variable
-ARG NEXT_PUBLIC_API_URL=http://localhost:8001
+ARG NEXT_PUBLIC_API_URL=http://localhost:8000
 ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
 
 # Build the application

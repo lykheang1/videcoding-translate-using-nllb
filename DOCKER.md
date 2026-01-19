@@ -44,14 +44,14 @@ This project uses Docker Compose to run both the backend and frontend services.
 ## Services
 
 ### Backend (FastAPI)
-- **Port:** 8001 (host) -> 8000 (container)
-- **URL:** http://localhost:8001
-- **Health Check:** http://localhost:8001/health
-- **API Docs:** http://localhost:8001/docs
+- **Port:** 8000 (host) -> 8000 (container)
+- **URL:** http://localhost:8000
+- **Health Check:** http://localhost:8000/health
+- **API Docs:** http://localhost:8000/docs
 
 ### Frontend (Next.js)
-- **Port:** 4000 (host) -> 3000 (container)
-- **URL:** http://localhost:4000
+- **Port:** 3000 (host) -> 3000 (container)
+- **URL:** http://localhost:3000
 
 ## First Run
 
@@ -63,11 +63,11 @@ You can customize the setup by creating a `.env` file in the root directory:
 
 ```env
 # Backend
-BACKEND_PORT=8001
+BACKEND_PORT=8000
 
 # Frontend
-FRONTEND_PORT=4000
-NEXT_PUBLIC_API_URL=http://localhost:8001
+FRONTEND_PORT=3000
+NEXT_PUBLIC_API_URL=http://localhost:8000
 ```
 
 ## Volume Mounts
@@ -78,7 +78,7 @@ NEXT_PUBLIC_API_URL=http://localhost:8001
 
 ### Port Already in Use
 
-If ports 8001 or 4000 are already in use, modify the port mappings in `docker-compose.yml`:
+If ports 8000 or 4000 are already in use, modify the port mappings in `docker-compose.yml`:
 
 ```yaml
 services:
@@ -87,7 +87,7 @@ services:
       - "8002:8000"  # Change host port (backend)
   frontend:
     ports:
-      - "4001:3000"  # Change host port (frontend)
+      - "3001:3000"  # Change host port (frontend)
 ```
 
 ### Model Download Issues
